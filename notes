@@ -1,0 +1,28 @@
+// bellow the const axios
+
+let cache = {};
+
+// TODO: need create a key - for data to store
+// TODO: if the things  exist AND is in a valid timeframe .. send that data
+// TODO: if the things DO NOT exist - cache it 
+
+
+//this is an example of cache
+
+//cache ={
+  //searchQuery+photo ={
+    //data: groomedData,
+    //timestamp: Date.cow()
+  //}
+//}
+
+//*
+
+// **** Key Creation
+// let key = queryFromFrontEnd + 'photo' 
+
+// TODO: if the things  exist AND is in a valid timeframe(cache[key].timestamp) .. send that data
+// if(cache[key] && (Date.now() - chacke[key].timestamp < 1000 * 20 )){
+// console.log('cache was hit, img are presant');
+//res.status(200).send(cache[key].data);
+//} 
