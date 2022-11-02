@@ -11,8 +11,8 @@ const express = require('express');
 require('dotenv').config();
 const cors = require('cors');
 const getMvies = require('./modules/movies');
-const getWeather = require('./oldModule/oldWeather');
-// const weather = require('./modules/weather');
+// const getWeather = require('./oldModule/oldWeather');
+const weather = require('./modules/weather');
 
 // once express is in we need to use it
 // app === server
@@ -25,21 +25,21 @@ const PORT = process.env.PORT || 3002;
 
 // ENDPOINTS
 
-app.get('/weather', getWeather);
+//app.get('/weather', getWeather);
 
-//app.get('/weather', weatherHandler);
+app.get('/weather', weatherHandler);
 
 app.get('/movies', getMvies);
 
-// function weatherHandler(request, response) {
-//   const { lat, lon } = request.query;
-//   weather(lat, lon)
-//     .then(summaries => response.send(summaries))
-//     .catch((error) => {
-//       console.error(error);
-//       response.status(200).send('Sorry. Something went wrong!')
-//     });
-// }
+function weatherHandler(request, response) {
+  const { lat, lon } = request.query;
+  weather(lat, lon)
+    .then(summaries => response.send(summaries))
+    .catch((error) => {
+      console.error(error);
+      response.status(200).send('Sorry. Something went wrong!');
+    });
+}
 
 
 
